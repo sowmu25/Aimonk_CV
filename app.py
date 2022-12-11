@@ -7,7 +7,7 @@ from tensorflow.keras.models import save_model,load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from predict import Attribute_classify
-from utils import decodeImage
+
 
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
@@ -38,15 +38,13 @@ def predictRoute():
         test_image = image.img_to_array(test_image)
         print(test_image)
         test_image = test_image/255.
-        #plt.imshow(test_image)
         test_image = np.expand_dims(test_image, axis=0)
         result = model.predict(test_image)[0]
-        result = np.where(result > 0.5, 1, 0)
+        result = np.where(result >= 0.5, 1, 0)
         print(result)
       
-        return render_template("index.html",predicted_result="Attribute prediction is {}".format(result))
+        return render_template("index.html",predicted_result="Attribute prediction of {} ".format(filename) +"  is {}".format(result))
 
 if __name__ == "__main__":
-    #clApp = ClientApp()
-    #app.run(host='0.0.0.0', port=port)
-    app.run(host='0.0.0.0', port=5000)
+   
+    app.run(debug=True)
