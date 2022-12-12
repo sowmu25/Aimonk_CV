@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.models import save_model,load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
-from predict import Attribute_classify
+
 
 
 os.putenv('LANG', 'en_US.UTF-8')
@@ -47,4 +47,4 @@ def predictRoute():
 
 if __name__ == "__main__":
    
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5050)

@@ -1,9 +1,12 @@
 
-The dataset is imbalanced, so it affects the accuracy. To handle this we need to do image agumentation using ImageDataGenerator from tensorflow preprocessing techniques, which can handle balancing the dataset by flipping the images.But manuall work is need to annotate the text file according to the generated image. Label 1, label3 and label4 are highly skewed
-
-image_973.jpg 0 1 0 0 , image_953.jpg 0 1 0 0
-
-We can take the images like image_973.jpg, image_953.jpg( having 0 1 0 0, because attribute 1, attribute 3,attribute 4 having imbalanced '0' ) and do the image generator 
+The dataset is imbalanced, so it affects the accuracy. To handle this we need to do image agumentation using ImageDataGenerator from tensorflow preprocessing techniques, which can handle balancing the dataset by preprocessing the images(flipping, zooming etc). Attribute 1, Attribute 3 and Attribute 4 are highly skewed
 
 
-Missing values, preprocessing methods are already handled in the program itself.  
+Missing values, preprocessing methods  and model building are already handled in Attribute.ipynb file.
+
+
+
+*****-----How to run this file------******
+activate tensorflow environment---> conda create and activate tensorflow environment
+Run the requirements.txt file  ---> pip install -r requirements.txt
+Run the file                   ---> python app.py
